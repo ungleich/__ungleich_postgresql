@@ -18,7 +18,7 @@
 # along with cdist. If not, see <http://www.gnu.org/licenses/>.
 #
 
-if [ -f "$__object/parameter/password") ]; then
+if [ -f "$__object/parameter/password" ]; then
     user="$(cat "$__object/parameter/user")"
     password="$(cat "$__object/parameter/password")"
     echo "su - postgres -c \"psql -c \\\"ALTER ROLE $user WITH PASSWORD '$password'\\\"\""
