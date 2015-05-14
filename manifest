@@ -63,6 +63,9 @@ postgres_server="postgresql-${postgres_version}"
 require="__package/$postgres_server" __postgres_role "$user" \
     --state present --login --createdb
 
+require="__package/$postgres_server" __postgres_database \
+        "$user" --state present --owner "$user"
+
 __package "$postgres_server" --state present
 
 require="__package/$postgres_server" __start_on_boot postgresql
