@@ -1,11 +1,8 @@
 cdist-type__ungleich_postgresql(7)
 =======================================
+Setup PostgreSQL with backup
+
 ungleich GmbH <cdist--@--ungleich.ch>
-
-
-NAME
-----
-cdist-type__ungleich_postgresql - Setup PostgreSQL with backup
 
 
 DESCRIPTION
@@ -14,47 +11,48 @@ Setup postgresql including some roles for application access
 
 The development of this type was made possible by Panter AG (www.panter.ch).
 
+
 REQUIRED PARAMETERS
 -------------------
-user::
+user
     Which system user to grant access to the database (creates a role)
 
 
 OPTIONAL PARAMETERS
 -------------------
-password::
+password
     Setup password for tcp based connections
-version::
+
+version
     Define PostgreSQL version to use instead of default
 
 
 BOOLEAN PARAMETERS
 ------------------
-no-backup::
+no-backup
     Do not backup database regulary
 
 
 EXAMPLES
 --------
 
---------------------------------------------------------------------------------
-__ungleich_postgresql --user app
+.. code-block:: sh
 
-# Setup password for tcp based connections (tcp not enabled by this type though)
-__ungleich_postgresql --user app --password 'hashedpw'
+    __ungleich_postgresql --user app
 
-# Select different version (must be available in the repository)
-__ungleich_postgresql --user app --version 9.2
+    # Setup password for tcp based connections (tcp not enabled by this type though)
+    __ungleich_postgresql --user app --password 'hashedpw'
 
-# Do not create backups
-__ungleich_postgresql --user app --no-backup
+    # Select different version (must be available in the repository)
+    __ungleich_postgresql --user app --version 9.2
 
---------------------------------------------------------------------------------
+    # Do not create backups
+    __ungleich_postgresql --user app --no-backup
 
 
 SEE ALSO
 --------
-- cdist-type(7)
+- `cdist-type(7) <cdist-type.html>`_
 
 
 COPYING
