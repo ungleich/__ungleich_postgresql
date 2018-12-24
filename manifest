@@ -24,7 +24,7 @@ os=$(cat $__global/explorer/os)
 osversion=$(cat "$__global/explorer/os_version")
 
 case "$os" in
-    debian)
+    debian|devuan)
         postgres_lib=libpq-dev
 
         case $osversion in
@@ -36,6 +36,9 @@ case "$os" in
             ;;
             8*)
                 postgres_version=9.4
+            ;;
+            9*|ascii/ceres|ascii)
+                postgres_version=9.6
             ;;
             *)
                 echo "Unsupported OS Version: $osversion" >&2
